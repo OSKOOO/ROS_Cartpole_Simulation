@@ -1,0 +1,15 @@
+<launch>
+    <!-- Launch the Gazebo server and GUI -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="worlds/empty.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Delay the spawn of the model to ensure Gazebo is fully launched -->
+    <node pkg="roslaunch" type="roslaunch" name="delayed_roslaunch" 
+          args="$(find cartpole_urdf)/launch/spawn_urdf.launch" launch-prefix="bash -c 'sleep 5; $0 $@' "/>
+</launch>
