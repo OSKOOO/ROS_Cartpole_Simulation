@@ -1,0 +1,13 @@
+<launch>
+
+  <rosparam file="$(find cp_controller)/config/my_robot_control.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/cart_pole" args="cart_joint_position_controller  joint_state_controller"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/cart_pole/joint_states" />
+  </node>
+
+</launch>
