@@ -5,7 +5,7 @@ Please ensure that you have ROS noetic and Gazebo 11 installed before using
 
 
 In a catkin_ws create a src directory and clone this repo into it
-cd ~/catkin_ws and use  roslaunch cartpole_urdf spawn_cartpole.launch to launch
+cd ~/catkin_ws and use $ roslaunch cartpole_urdf spawn_cartpole.launch to launch
 simulaiton
 
 In order to visualize the model in RVIZ use the following command
