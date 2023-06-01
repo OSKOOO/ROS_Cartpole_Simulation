@@ -8,5 +8,6 @@ In a catkin_ws create a src directory and clone this repo into it
 `cd ~/catkin_ws ` and use ` roslaunch cartpole_urdf spawn_cartpole.launch ` to launch
 simulaiton
 
+
 In order to visualize the model in RVIZ use the following command
 `roslaunch cartpole_urdf cartpole.launch model:='$(find cartpole_urdf)/urdf/cartpole.urdf'`
