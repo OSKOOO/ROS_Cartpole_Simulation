@@ -1,0 +1,3 @@
+joint_names:
+  - cart_joint
+  - pole_joint

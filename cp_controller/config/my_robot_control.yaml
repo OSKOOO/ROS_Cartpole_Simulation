@@ -3,8 +3,13 @@ cart_pole:
     type: joint_state_controller/JointStateController
     publish_rate: 50  
 
-  cart_joint_position_controller:
-    type: effort_controllers/JointPositionController
+  cart_joint_effort_controller:
+    type: effort_controllers/JointEffortController
     joint: cart_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 100.0, i: 0.00, d: 10.0}
+
+  pole_joint_dummy_controller:
+    type: effort_controllers/JointEffortController
+    joint: pole_joint
+    pid: {p: 0.00, i: 0.00, d: 0.00}  
 
