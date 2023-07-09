@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <Eigen/Dense>
+#include "../../QuadProgpp/src/QuadProg++.hh"
 
 
 class FSM_data

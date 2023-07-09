@@ -125,6 +125,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_subdirectory(QuadProgpp)
+
 
 add_library(${PROJECT_NAME}
   src/FSM_data.cpp
@@ -134,6 +136,7 @@ add_dependencies(${PROJECT_NAME}
 )
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
+  # QuadProgpp
 )
 
 ## Mark cpp header files for installation
