@@ -13,3 +13,4 @@ To launch LQR controller use `roslaunch cp_controller my_robot_control.launch`
 In order to visualize the model in RVIZ use the following command
 `roslaunch cartpole_urdf cartpole.launch model:='$(find cartpole_urdf)/urdf/cartpole.urdf'`
 
+Dependencies: QuadProg++
