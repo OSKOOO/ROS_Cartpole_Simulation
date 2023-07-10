@@ -35,7 +35,7 @@ void FSM_data::set_system_state(double cart_position, double cart_velocity, doub
 }
 
 
-void FSM_data::send_command(){
+void FSM_data::calc_command(){
 
     if(controller_type == 0 /*LQR*/){
         //Define optimal gain based on lqr gain calculated in MATLAB
@@ -54,6 +54,6 @@ void FSM_data::send_command(){
 }
 
 
-double FSM_data::set_command(){
+double FSM_data::get_command(){
         return control_input;
     };

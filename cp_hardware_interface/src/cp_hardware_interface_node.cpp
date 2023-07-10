@@ -13,8 +13,8 @@ void counterCallback(const sensor_msgs::JointState::ConstPtr& msg) // Define a f
 {
   cp_data.set_system_state(msg->position[0], msg->velocity[0], msg->position[1], msg->velocity[1]);
 
-  cp_data.send_command();
-  control_input = cp_data.set_command();
+  cp_data.calc_command();
+  control_input = cp_data.get_command();
   std_msgs::Float64 effort_msg;
   effort_msg.data = control_input;
   effort_pub.publish(effort_msg);

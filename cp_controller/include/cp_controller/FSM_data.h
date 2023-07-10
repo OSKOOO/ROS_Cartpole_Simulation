@@ -13,8 +13,8 @@ class FSM_data
 
     void set_system_state(double cart_position, double cart_velocity, double pole_angle, double pole_velocity);
     Eigen::Vector4d get_system_state(){return system_state;};
-    void send_command();
-    double set_command();
+    void calc_command();
+    double get_command();
 
     QP_control qp_control;
 
