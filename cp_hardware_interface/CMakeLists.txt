@@ -31,6 +31,7 @@ include_directories(
 add_library(${PROJECT_NAME}
   src/cp_hardware_interface.cpp
   ../cp_controller/src/FSM_data.cpp
+  ../cp_controller/src/QP_controller.cpp
 
 )
 add_dependencies(${PROJECT_NAME}
@@ -49,6 +50,7 @@ add_dependencies(${PROJECT_NAME}_node
 target_link_libraries(${PROJECT_NAME}_node
   ${PROJECT_NAME}
   ${catkin_LIBRARIES}
+  cp_controller
 )
 
 ## Mark executables for installation

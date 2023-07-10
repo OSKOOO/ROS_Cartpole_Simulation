@@ -4,18 +4,14 @@
 
 
 FSM_data::FSM_data()
-{
+{   
     cart_position = 0;
     cart_velocity = 0;
     pole_angle = 0;
     pole_velocity = 0;
-    lqr_control_input = 0;
+    control_input = 0;
+    controller_type = 0;  //Switch between controllers here // 0 = LQR, 1 = QP, 2 = MPC 
 
-
-    cart_position_error = 0;
-    cart_velocity_error = 0;
-    pole_angle_error = 0;
-    pole_velocity_error = 0;
 }
 
 FSM_data::~FSM_data()
@@ -40,14 +36,24 @@ void FSM_data::set_system_state(double cart_position, double cart_velocity, doub
 
 
 void FSM_data::send_command(){
-    Eigen::Vector4d lqr_gain;
-    lqr_gain <<  -31.6228,  458.3668,  -46.9795,  139.9573;
 
-    lqr_control_input = -lqr_gain.transpose() * system_state;
-    std::cout << "LQR control input: " << lqr_control_input << std::endl;
+    if(controller_type == 0 /*LQR*/){
+        //Define optimal gain based on lqr gain calculated in MATLAB
+        lqr_gain <<  -31.6228,  458.3668,  -46.9795,  139.9573;
+        control_input = -lqr_gain.transpose() * system_state;
+    }
+    else if(controller_type == 1 /*QP*/){
+        qp_control.set_system_state(system_state);
+        control_input = qp_control.solve_QP();
+    }
+    else{
+        std::cout << "Invalid controller type" << std::endl;
+    }
+    
+    std::cout << "control input: " << control_input << std::endl;
 }
 
 
 double FSM_data::set_command(){
-        return lqr_control_input;
+        return control_input;
     };

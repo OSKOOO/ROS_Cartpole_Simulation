@@ -4,24 +4,19 @@
 #include <sensor_msgs/JointState.h>
 #include <std_msgs/Float64.h>
 #include"/home/obot/catkin_ws/src/cp_controller/include/cp_controller/FSM_data.h"
-// src/cp_controller/include/cp_controller/FSM_data.h
-// /home/obot/catkin_ws/src/cp_controller/include/cp_controller/FSM_data.h
+
 ros::Publisher effort_pub;
 cp_HardwareInterface cphi;
 FSM_data cp_data;
-double lqr_control_input;
+double control_input;
 void counterCallback(const sensor_msgs::JointState::ConstPtr& msg) // Define a function called 'callback' that receives a                                                                // parameter named 'msg' 
 {
-  // ROS_INFO("joint %s :", msg->name[0].c_str());
-  // ROS_INFO("Position of joint is %f", msg->position[0]); // Print the value 'data' inside the 'msg' parameter
-  // ROS_INFO("Velocity of joint is %f", msg->velocity[0]); // Print the value 'data' inside the 'msg' parameter
-  // ROS_INFO("\n");
   cp_data.set_system_state(msg->position[0], msg->velocity[0], msg->position[1], msg->velocity[1]);
 
   cp_data.send_command();
-  lqr_control_input = cp_data.set_command();
+  control_input = cp_data.set_command();
   std_msgs::Float64 effort_msg;
-  effort_msg.data = lqr_control_input;
+  effort_msg.data = control_input;
   effort_pub.publish(effort_msg);
 }
 
