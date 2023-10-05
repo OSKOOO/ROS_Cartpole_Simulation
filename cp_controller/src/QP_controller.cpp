@@ -17,8 +17,8 @@ QP_control::QP_control(){
 
     //Define the constraint vector
     b.resize(2);
-    b[0] = 240.0;   //Max control input
-    b[1] = 240.0;   //Min control input
+    b[0] = 300.0;   //Max control input
+    b[1] = 300.0;   //Min control input
 
     //Define the equality constraint matrix
     CE.resize(1,0);
