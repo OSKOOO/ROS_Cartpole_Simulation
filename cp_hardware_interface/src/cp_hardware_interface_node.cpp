@@ -3,7 +3,7 @@
 #include "ros/ros.h"
 #include <sensor_msgs/JointState.h>
 #include <std_msgs/Float64.h>
-#include"/home/obot/catkin_ws/src/cp_controller/include/cp_controller/FSM_data.h"
+#include"../../cp_controller/include/cp_controller/FSM_data.h"
 
 ros::Publisher effort_pub;
 cp_HardwareInterface cphi;

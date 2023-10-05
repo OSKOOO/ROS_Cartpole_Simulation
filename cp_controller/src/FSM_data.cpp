@@ -10,7 +10,7 @@ FSM_data::FSM_data()
     pole_angle = 0;
     pole_velocity = 0;
     control_input = 0;
-    controller_type = 0;  //Switch between controllers here // 0 = LQR, 1 = QP, 2 = MPC 
+    controller_type = 0;  //Switch between controllers here // 0 = LQR, 1 = QP
 
 }
 
