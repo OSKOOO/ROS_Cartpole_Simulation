@@ -1,5 +1,6 @@
 # ROS_cartpole_simulation
-![ezgif com-video-to-gif(6)](https://github.com/OSKOOO/ROS_Cartpole_Simulation/assets/111469977/ae1b9005-2b0b-4e9c-a38f-bb35d31f7855)
+![ezgif com-video-to-gif(6)](https://github.com/OSKOOO/ROS_Cartpole_Simulation/assets/111469977/54fb22ec-a3b3-4bfe-9d65-078153152cf1)
+
 
 This is an implementation of an inverted pendulum dynamics in ROS
 Please ensure that you have ROS Noetic and Gazebo 11 installed before using
